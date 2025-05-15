@@ -1,9 +1,6 @@
 package br.com.ocauamotta;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 class Pessoa {
     private String nome;
@@ -32,6 +29,10 @@ public class Collections {
         memory = scanner.nextLine().replace(" ", "").toLowerCase().split(",");
         if (!memory[0].isEmpty()) {
             Arrays.stream(memory).forEach(pessoa -> pessoas.add(new Pessoa(pessoa)));
+        }
+
+        if (!pessoas.isEmpty()) {
+            pessoas.sort((p1, p2) -> p1.getNome().compareToIgnoreCase(p2.getNome()));
         }
 
         System.out.println("**** Pessoas cadastradas ****");
